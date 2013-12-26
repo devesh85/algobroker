@@ -1,19 +1,21 @@
 package broker
 
 object Broker extends App{
-	print ("Hello Broker")
-	type Quantity = Float
-    type Id = String
-    type ExecType = String
-    type OrderStatys = String
+  import OrderTypesDefinitions._	
+  print ("Hello Broker")
+	
     
     
 	trait Order {
-	    def orderId : Id   
+	    def orderId : Id
+	    def clOrderId: Id
+	    def origClOrdId : Id
+	    def orderStatus : OrderStatus
+	    def execTransType : ExecTransType.Value
 	}
 	
-	class ParentOrder (val orderId:Id) extends Order
-    class ChildOrder (val orderId:Id)extends Order
+//	class ParentOrder (val orderId:OrderId) extends Order
+//    class ChildOrder (val orderId:OrderId)extends Order
     
     
 }

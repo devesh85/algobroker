@@ -4,9 +4,12 @@ import OrderTypesDefinitions._
 
 
 sealed trait OrderEvent {
-  val orderId: OrderId
+  val message: Message
 }
 
-case class NewOrderCreatedEvent(orderId:OrderId, clOrdId:OrderId, orderQty:Quantity)
-case class OrderPartiallyFilledEvent(orderId:OrderId, cumQty:Quantity)
-case class OrderCancelled(orderId:OrderId)
+case class NewOrderCreated(message:Message) extends OrderEvent
+
+
+//case class NewOrderCreatedEvent(orderId:Id, clOrdId:Id, orderQty:Quantity)
+//case class OrderPartiallyFilledEvent(orderId:Id, cumQty:Quantity)
+//case class OrderCancelled(orderId:Id)
